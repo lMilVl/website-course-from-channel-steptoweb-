@@ -17,6 +17,8 @@
     const burgerItem = document.querySelector('.burger');
     const closeItem = document.querySelector('.header__nav-close');
     const menu = document.querySelector('.header__nav');
+    const menuLinks = document.querySelectorAll('.header__link');
+
     burgerItem.addEventListener('click', () => {
         menu.classList.add('header__nav_active');
     });
@@ -24,6 +26,14 @@
     closeItem.addEventListener('click', () => {
         menu.classList.remove('header__nav_active');
     });
+
+    if (window.innerHeight <= 767) {
+        menuLinks.forEach(element => {
+            element.addEventListener('click', () => {
+                menu.classList.remove('header__nav_active');
+            })
+        });
+    }
 }());
 
 
